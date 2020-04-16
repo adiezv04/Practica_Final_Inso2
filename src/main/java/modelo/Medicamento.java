@@ -6,6 +6,7 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -57,5 +58,41 @@ public class Medicamento implements Serializable{
         this.descripcion = descripcion;
     }
 
-    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + this.idMedicamento;
+        hash = 19 * hash + Objects.hashCode(this.nombre);
+        hash = 19 * hash + Objects.hashCode(this.descripcion);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Medicamento other = (Medicamento) obj;
+        if (this.idMedicamento != other.idMedicamento) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Medicamento{" + "idMedicamento=" + idMedicamento + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+    }
 }
