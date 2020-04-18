@@ -2,18 +2,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Iniciar sesión</title>
+        <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
-    <h:body>
+    <h:body id="principal">
         <h:form>
-            <p:outputLabel value="Medicamentos prueebaa"/>
-            <p:selectOneMenu value="#{medicamentoControlador.medicamento.idMedicamento}">
-                <f:selectItems value="#{medicamentoControlador.listaMedicamentos}"
-                               var = "c" itemLabel="#{c.nombre}" itemValue="#{c.idMedicamento}"/>
-            </p:selectOneMenu>
+            <div class="login-page">
+                <div class="form">
+                    <h:form class="login-form">
+                        <p:inputText placeholder="nombre de usuario"/>
+                        <p:password placeholder="contraseña"/>
+                        <p:commandButton value="Iniciar Sesión"/>
+                        <h:link class="message" outcome="registro.xhtml" value="Crear una cuenta"/>
+                    </h:form>
+                </div>
+            </div>
         </h:form>
     </h:body>
 </html>

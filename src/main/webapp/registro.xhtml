@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Registro</title>
+        <h:outputStylesheet library="css" name="registro.css"/>
+    </h:head>
+    <h:body id="principal">
+        <h:form>
+            <div class="login-page">
+                <div class="form">
+                    <h:form class="login-form">
+                        <p class="message2">Datos personales</p>
+                        <hr></hr>
+                        <p:inputText placeholder="nombre"/>
+                        <p:inputText placeholder="apellidos"/>
+                        <p:inputText placeholder="dni"/>
+                        <p:calendar placeholder="fecha de nacimiento" locale="es"/>
+                        <p:password placeholder="contraseña"/>
+                        <p class="message2">Datos de usuario</p>
+                        <hr></hr>
+                        <p:inputText placeholder="nombre de usuario"/>
+                        <p:password placeholder="contraseña"/>
+                        <p:password placeholder="repetir contraseña"/>
+                        
+                        <p:commandButton value="Registrarse"/>
+                        <h:link class="message" outcome="index.xhtml" value="Iniciar sesión"/>
+                        
+                        <h:outputScript library="js" name="calendar.js"/>
+                    </h:form>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
