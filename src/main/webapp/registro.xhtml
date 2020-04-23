@@ -8,36 +8,28 @@
         <h:outputStylesheet library="css" name="registro.css"/>
     </h:head>
     <h:body id="principal">
-        <h:form id="h_form">
+        <h:form>
             <div class="login-page">
                 <div class="form">
-                    <div class="login-form">
-                        <p class="message2">Datos personales*</p>
+                    <h:form class="login-form">
+                        <p class="message2">Datos personales</p>
                         <hr></hr>
-                        <p:inputText label="nombre" placeholder="nombre" required="true" value="#{registroControlador.paciente.nombre}"/>
-                        
-                        <p:inputText label="apellidos" placeholder="apellidos" required="true" value="#{registroControlador.paciente.apellidos}"/>
-                        
-                        <p:inputText label="dni" placeholder="dni" required="true" value="#{registroControlador.paciente.dni}"/>
-                        
-                        <p:calendar label="fecha de nacimiento" placeholder="fecha de nacimiento" required="true" locale="es" value="#{registroControlador.paciente.fechaNacimiento}"/>
-                        
-                        <p class="message2">Datos de usuario*</p>
+                        <p:inputText placeholder="nombre"/>
+                        <p:inputText placeholder="apellidos"/>
+                        <p:inputText placeholder="dni"/>
+                        <p:calendar placeholder="fecha de nacimiento" locale="es"/>
+                        <p:password placeholder="contraseña"/>
+                        <p class="message2">Datos de usuario</p>
                         <hr></hr>
-                        <p:inputText label="nombre de usuario" placeholder="nombre de usuario" required="true" value="#{registroControlador.usuario.nombreUsuario}"/>
+                        <p:inputText placeholder="nombre de usuario"/>
+                        <p:password placeholder="contraseña"/>
+                        <p:password placeholder="repetir contraseña"/>
                         
-                        <p:password label="contraseña" placeholder="contraseña" required="true" value="#{registroControlador.usuario.clave}"/>
-                        
-                        <p:password label="repetir contraseña" required="true" placeholder="repetir contraseña"/>
-                        
-                        <p:commandButton value="Registrarse" actionListener="#{registroControlador.registra()}"/>
+                        <p:commandButton value="Registrarse"/>
                         <h:link class="message" outcome="index.xhtml" value="Iniciar sesión"/>
                         
                         <h:outputScript library="js" name="calendar.js"/>
-                    </div>
-                    <p:messages id="messages" showDetail="true" closable="true">
-                        <p:autoUpdate/>
-                    </p:messages>
+                    </h:form>
                 </div>
             </div>
         </h:form>

@@ -38,8 +38,17 @@
 
 .form button{
     outline: 0;
+    background: #006699;
     width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
     font-size: 16px;
+    cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus{
+    background: #003399;
 }
 
 .form .message{

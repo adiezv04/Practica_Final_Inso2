@@ -9,18 +9,14 @@
     </h:head>
     <h:body id="principal">
         <h:form>
-            
             <div class="login-page">
-                <p:messages id="messages" showDetail="true" closable="true">
-                    <p:autoUpdate/>
-                </p:messages>
                 <div class="form">
-                    <div class="login-form">
-                        <p:inputText placeholder="nombre de usuario" value="#{indexControlador.usuario.nombreUsuario}"/>
-                        <p:password placeholder="contraseña" value="#{indexControlador.usuario.clave}"/>
-                        <p:commandButton value="Iniciar Sesión" action="#{indexControlador.verificarUsuario()}"/>
+                    <h:form class="login-form">
+                        <p:inputText placeholder="nombre de usuario"/>
+                        <p:password placeholder="contraseña"/>
+                        <p:commandButton value="Iniciar Sesión"/>
                         <h:link class="message" outcome="registro.xhtml" value="Crear una cuenta"/>
-                    </div>
+                    </h:form>
                 </div>
             </div>
         </h:form>
