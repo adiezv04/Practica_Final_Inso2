@@ -23,11 +23,14 @@ public class Solicitud implements Serializable{
     private int idSolicitud;
     
     @JoinColumn(name="idPaciente")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Paciente paciente;
     
     @Column(name="descripcion")
     private String descripcion;
+    
+    @Column(name="horario")
+    private String horario;
 
     public int getIdSolicitud() {
         return idSolicitud;
@@ -51,6 +54,14 @@ public class Solicitud implements Serializable{
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     @Override

@@ -17,26 +17,13 @@
                             <p:outputLabel value="#{principalControlador.paciente.nombre} #{principalControlador.paciente.apellidos} #{principalControlador.paciente.dni}" style="text-transform: uppercase;"/>
                         </f:facet>
                         <f:facet name="right">
+                            <p:commandButton value="Ayuda" icon="ui-icon-question"/>
                             <p:commandButton value="Notificaciones" action="notificaciones.xhtml"/>
-                            <p:commandButton value="Cerrar sesión" icon="ui-icon-extlink" action="#{principalControlador.cerrarSesion()}"/>
+                            <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
                         </f:facet>
                     </p:toolbar>
                     <br></br>
-                    <h:link outcome="solicitud.xhtml">
-                        <div id="top-left">
-                            Pedir cita
-                        </div>
-                    </h:link>
-                    <h:link outcome="citas.xhtml">
-                        <div id="top-right">
-                            Ver citas
-                        </div>
-                    </h:link>
-                    <h:link outcome="recetas.xhtml">
-                        <div id="bottomDiv">
-                            Ver recetas
-                        </div>
-                    </h:link>   
+                     
                 </h:form>
             </ui:define>
 

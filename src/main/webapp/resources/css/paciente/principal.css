@@ -1,7 +1,7 @@
 #bottomDiv{
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
     float: left;
-    margin-top: 25px;
+    margin-top: 35px;
     margin-left: 33%;
     width: 33%;
     height: 230px;
@@ -20,6 +20,7 @@
 
 #bottomDiv:hover{
     filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
 }
 
 #top-right{
@@ -42,6 +43,7 @@
 
 #top-right:hover{
     filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
 }
 
 #top-left{
@@ -66,10 +68,10 @@
 
 #top-left:hover{
     filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
 }
 
 #toolbar{
-    height: 20%;
     width: 95%;
     font-size: 20px;
 }

@@ -36,6 +36,9 @@ public class Notificacion implements Serializable{
     @JoinColumn(name="idUsuario")
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Usuario usuario;
+    
+    @Column(name="emisor")
+    private String emisor;
 
     public int getIdNotificacion() {
         return idNotificacion;
@@ -75,6 +78,14 @@ public class Notificacion implements Serializable{
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public String getEmisor() {
+        return emisor;
+    }
+
+    public void setEmisor(String emisor) {
+        this.emisor = emisor;
     }
 
     @Override

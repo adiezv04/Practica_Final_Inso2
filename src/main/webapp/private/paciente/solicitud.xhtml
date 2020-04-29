@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/cliente.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:toolbar id="toolbar">
+                        <f:facet name="left">
+                            <p:outputLabel value="#{citaControlador.paciente.nombre} #{citaControlador.paciente.apellidos} #{citaControlador.paciente.dni}" style="text-transform: uppercase;"/>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:commandButton value="Ayuda" icon="ui-icon-help" action="#{citaControlador.ayuda()}"/>
+                            <p:commandButton value="Notificaciones" action="notificaciones.xhtml"/>
+                            <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
+                        </f:facet>
+                    </p:toolbar>
+                    <p:messages id="messages" showDetail="true" closable="true">
+                        <p:autoUpdate/>
+                    </p:messages>
+                    <br></br>
+                    <center>
+                        <h2>Describa los motivos de su cita</h2>
+                        <p:inputTextarea rows="10" cols="50" value="#{citaControlador.solicitud.descripcion}"/>
+                        <br></br>
+                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                            <p:outputLabel for="horario" value="Disponibilidad horaria:" style="font-weight: bold;"/>
+                            <p:selectOneRadio id="horario" unselectable="true" value="#{citaControlador.solicitud.horario}">
+                                <f:selectItem itemLabel="Mañanas" itemValue="Mañanas" />
+                                <f:selectItem itemLabel="Tardes" itemValue="Tardes" />
+                                <f:selectItem itemLabel="Sin preferencia" itemValue="Ambas"/>
+                            </p:selectOneRadio>
+                        </h:panelGrid>
+                        <p:commandButton value="Pedir cita" actionListener="#{citaControlador.crearSolicitud()}"/>
+                    </center>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
