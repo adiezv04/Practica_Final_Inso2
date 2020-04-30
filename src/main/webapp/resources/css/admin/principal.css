@@ -1,0 +1,106 @@
+#bot-right{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+    float: left;
+    width: 33%;
+    height: 230px;
+    background-image:url(../../img/gestion.jpg);
+    filter: brightness(0.4);
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 35px;
+    color: orangered;
+}
+
+#bot-right:hover{
+    filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
+}
+
+#bot-left{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+    float: left;
+    margin-left: 12.5%;
+    margin-right: 8%;
+    width: 33%;
+    height: 230px;
+    background-image:url(../../img/cita.jpg);
+    filter: brightness(0.4);
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 35px; 
+    color: orangered;
+}
+
+#bot-left:hover{
+    filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
+}
+
+#top-right{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+    float: left;
+    width: 33%;
+    height: 230px;
+    background-image:url(../../img/medicamentos.jpg);
+    filter: brightness(0.4);
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    color: orangered;    
+}
+
+#top-right:hover{
+    filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
+}
+
+#top-left{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+    float: left;
+    margin-left: 12.5%;
+    margin-right: 8%;
+    width: 33%;
+    height: 230px;
+    background-image:url(../../img/solicitud.jpg);
+    filter: brightness(0.4);
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    color: orangered;  
+}
+
+#top-left:hover{
+    filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
+}
+
+#toolbar{
+    width: 95%;
+    font-size: 20px;
+}
+
+#form{
+    width: 98%;
+}

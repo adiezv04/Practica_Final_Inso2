@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/admin.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:toolbar id="toolbar">
+                        <f:facet name="left">
+                            <p:outputLabel value="Administrador" style="text-transform: uppercase;"/>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:commandButton value="Notificaciones" action="notificaciones.xhtml"/>
+                            <p:commandButton value="Cerrar sesión" icon="ui-icon-extlink" action="#{principalControlador.cerrarSesion()}"/>
+                        </f:facet>
+                    </p:toolbar>
+                    <br></br>
+                    <h:link outcome="solicitudes.xhtml">
+                        <div id="top-left">
+                            Ver solicitudes
+                        </div>
+                    </h:link>
+                    <h:link outcome="medicamentos.xhtml">
+                        <div id="top-right">
+                            Gestionar Medicamentos
+                        </div>
+                    </h:link>
+                    <h:link outcome="medicos.xhtml">
+                        <div id="bot-left">
+                            Añadir médico
+                        </div>
+                    </h:link> 
+                    <h:link outcome="gestionUsuarios.xhtml">
+                        <div id="bot-right">
+                            Gestionar Usuarios
+                        </div>
+                    </h:link> 
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

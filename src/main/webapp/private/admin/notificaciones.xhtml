@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/cliente.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:toolbar id="toolbar">
+                        <f:facet name="left">
+                            <p:outputLabel value="#{notificacionesControlador.paciente.nombre} #{notificacionesControlador.paciente.apellidos} #{notificacionesControlador.paciente.dni}" style="text-transform: uppercase;"/>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
+                        </f:facet>
+                    </p:toolbar>
+                    <br></br>
+                    
+                    <p:dataTable var="notificacion" value="#{notificacionesControlador.listaNotificaciones}" emptyMessage="No hay mensajes.">
+                        <p:column headerText="De:">
+                            <h:outputText value="#{notificacion.emisor}"/>
+                        </p:column>
+                        <p:column headerText="Texto">
+                            <h:outputText value="#{notificacion.texto}"/>
+                        </p:column>
+                        <p:column headerText="Fecha">
+                            <h:outputText value="#{notificacion.fecha}"><f:convertDateTime type="date" pattern="dd-MM-yyyy"/></h:outputText>
+                        </p:column>
+                        <p:column style="width: 5%">
+                            <p:commandButton icon="ui-icon-trash" actionListener="#{notificacionesControlador.borrar(notificacion)}" update=":form"/>
+                        </p:column>
+                        
+                    </p:dataTable>
+                    
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

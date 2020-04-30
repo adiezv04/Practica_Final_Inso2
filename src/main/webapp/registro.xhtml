@@ -26,9 +26,9 @@
                         <hr></hr>
                         <p:inputText label="nombre de usuario" placeholder="nombre de usuario" required="true" value="#{registroControlador.usuario.nombreUsuario}"/>
                         
-                        <p:password label="contraseña" placeholder="contraseña" required="true" value="#{registroControlador.usuario.clave}"/>
+                        <p:password label="contraseña" placeholder="contraseña" required="true" value="#{registroControlador.usuario.clave}" match="repetir"/>
                         
-                        <p:password label="repetir contraseña" required="true" placeholder="repetir contraseña"/>
+                        <p:password id="repetir" label="repetir contraseña" required="true" placeholder="repetir contraseña"/>
                         
                         <p:commandButton value="Registrarse" actionListener="#{registroControlador.registra()}"/>
                         <h:link class="message" outcome="index.xhtml" value="Iniciar sesión"/>

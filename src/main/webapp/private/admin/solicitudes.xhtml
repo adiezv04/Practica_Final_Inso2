@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/admin.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:toolbar id="toolbar">
+                        <f:facet name="left">
+                            <p:outputLabel value="Administrador" style="text-transform: uppercase;"/>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:commandButton value="Notificaciones" action="notificaciones.xhtml"/>
+                            <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
+                        </f:facet>
+                    </p:toolbar>
+                    <br></br>
+                    <p:accordionPanel var="sol" value="#{solicitudControlador.listaSolicitudes}">
+                        <p:tab title="Paciente: #{sol.paciente.nombre} #{sol.paciente.apellidos},  edad: #{solicitudControlador.getEdad(sol.paciente.fechaNacimiento)}, dni: #{sol.paciente.dni}">
+                            <h:outputLabel for="descripcion" value="Descripción: " style="font-weight: bold;"/>
+                            <h:outputText id ="descripcion" value="#{sol.descripcion}"></h:outputText>
+                            <br></br>
+                            <br></br>
+                            <c:set var="idDoctor"/>
+                            <p:panelGrid columns="3">
+                                <f:facet name="header"><h:outputLabel value="Dar cita "/></f:facet>
+                                <h:outputLabel for="docs" value="Seleccionar doctor: "/>
+                                
+                                <p:selectOneMenu value="#{sol.descripcion}" id="docs">
+                                    <f:selectItems value="#{solicitudControlador.listaDoctores}" var="d" itemValue="#{String.valueOf(d.idDoctor)}" itemLabel="Dr. #{d.apellidos}, especialidad: #{d.especialidad}"/>
+                                </p:selectOneMenu>
+                                <p:commandButton value="Aceptar" actionListener="#{solicitudControlador.creaCita(sol)}"/>
+                            </p:panelGrid>
+                        </p:tab>
+                    </p:accordionPanel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
