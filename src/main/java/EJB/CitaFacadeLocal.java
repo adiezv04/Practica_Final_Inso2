@@ -8,6 +8,7 @@ package EJB;
 import java.util.List;
 import javax.ejb.Local;
 import modelo.Cita;
+import modelo.Doctor;
 
 /**
  *
@@ -29,5 +30,7 @@ public interface CitaFacadeLocal {
     List<Cita> findRange(int[] range);
 
     int count();
+
+    public List<Cita> buscarCitas(Doctor doc);
     
 }

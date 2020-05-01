@@ -5,14 +5,17 @@
  */
 package controlador;
 
+import EJB.NotificacionFacadeLocal;
 import EJB.SolicitudFacadeLocal;
 import java.io.Serializable;
+import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import modelo.Notificacion;
 import modelo.Paciente;
 import modelo.Solicitud;
 
@@ -26,6 +29,8 @@ public class CitaControlador implements Serializable{
    
     @EJB
     private SolicitudFacadeLocal solicitudEJB;
+    @EJB
+    private NotificacionFacadeLocal notificacionEJB;
     private Solicitud solicitud;
     private Paciente paciente;
 
@@ -39,6 +44,12 @@ public class CitaControlador implements Serializable{
         try{
             solicitud.setPaciente(paciente);
             solicitudEJB.create(solicitud);
+            /*Notificacion notificacion = new Notificacion();
+            notificacion.setEmisor("Sistema");
+            notificacion.setFecha(new Date());
+            notificacion.setLeida(false);
+            notificacion.setUsuario();
+            notificacion.setTexto("Han realizado una nueva solicitud.");*/
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Cita solicitada con éxito."));
         }catch(Exception e){
             System.err.println("Error al crear solicitud "+e.getMessage());
