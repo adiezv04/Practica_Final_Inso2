@@ -12,6 +12,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import modelo.Cita;
 import modelo.Doctor;
+import modelo.Paciente;
+import modelo.Usuario;
 
 /**
  *
@@ -37,6 +39,21 @@ public class CitaFacade extends AbstractFacade<Cita> implements CitaFacadeLocal 
         String consulta = "FROM Cita c WHERE c.doctor=:param1";
         Query query = em.createQuery(consulta);
         query.setParameter("param1", doc);
+        
+        List<Cita> resultado = query.getResultList();
+        
+        if(resultado.isEmpty()){
+            return null;
+        }else{
+            return resultado;
+        }
+    }
+
+    @Override
+    public List<Cita> buscarCita(Paciente pac) {
+        String consulta = "FROM Cita c WHERE c.paciente=:param1";
+        Query query = em.createQuery(consulta);
+        query.setParameter("param1", pac);
         
         List<Cita> resultado = query.getResultList();
         

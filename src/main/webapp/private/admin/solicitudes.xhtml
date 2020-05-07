@@ -23,8 +23,8 @@
                         </f:facet>
                     </p:toolbar>
                     <br></br>
-                    <p:accordionPanel var="sol" value="#{solicitudControlador.listaSolicitudes}">
-                        <p:tab title="Paciente: #{sol.paciente.nombre} #{sol.paciente.apellidos},  edad: #{solicitudControlador.getEdad(sol.paciente.fechaNacimiento)}, dni: #{sol.paciente.dni}">
+                    <p:accordionPanel var="sol" value="#{citaControlador.listaSolicitudes}">
+                        <p:tab title="Paciente: #{sol.paciente.nombre} #{sol.paciente.apellidos},  edad: #{citaControlador.getEdad(sol.paciente.fechaNacimiento)}, dni: #{sol.paciente.dni}">
                             <h:outputLabel for="descripcion" value="Descripción: " style="font-weight: bold;"/>
                             <h:outputText id ="descripcion" value="#{sol.descripcion}"></h:outputText>
                             <br></br>
@@ -35,9 +35,9 @@
                                 <h:outputLabel for="docs" value="Seleccionar doctor: "/>
                                 
                                 <p:selectOneMenu value="#{sol.descripcion}" id="docs">
-                                    <f:selectItems value="#{solicitudControlador.listaDoctores}" var="d" itemValue="#{String.valueOf(d.idDoctor)}" itemLabel="Dr. #{d.apellidos}, especialidad: #{d.especialidad}"/>
+                                    <f:selectItems value="#{citaControlador.listaDoctores}" var="d" itemValue="#{String.valueOf(d.idDoctor)}" itemLabel="Dr. #{d.apellidos}, especialidad: #{d.especialidad}"/>
                                 </p:selectOneMenu>
-                                <p:commandButton value="Aceptar" actionListener="#{solicitudControlador.creaCita(sol)}"/>
+                                <p:commandButton value="Aceptar" actionListener="#{citaControlador.creaCita(sol)}"/>
                             </p:panelGrid>
                         </p:tab>
                     </p:accordionPanel>

@@ -21,7 +21,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name="medicamento")
-
 public class Medicamento implements Serializable{
     
     @Id
@@ -50,7 +49,7 @@ public class Medicamento implements Serializable{
         this.nombre = nombre;
     }
 
-    public String isDescripcion() {
+    public String getDescripcion() {
         return descripcion;
     }
 

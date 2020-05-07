@@ -9,6 +9,8 @@ import java.util.List;
 import javax.ejb.Local;
 import modelo.Cita;
 import modelo.Doctor;
+import modelo.Paciente;
+import modelo.Usuario;
 
 /**
  *
@@ -32,5 +34,7 @@ public interface CitaFacadeLocal {
     int count();
 
     public List<Cita> buscarCitas(Doctor doc);
+
+    public List<Cita> buscarCita(Paciente pac);
     
 }

@@ -6,12 +6,16 @@
 package controlador;
 
 import EJB.MedicamentoFacadeLocal;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import modelo.Medicamento;
 
 /**
@@ -32,6 +36,22 @@ public class MedicamentoControlador implements Serializable{
         medicamento = new Medicamento();
         listaMedicamentos = medicamentoEJB.findAll();
     }
+    
+    public void anadeMedicamento(){
+        try{
+            medicamentoEJB.create(medicamento);
+            ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+            ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+        }catch(IOException e){
+            System.err.println("Error al insertar medicamento " + e.getMessage());
+        }
+    }
+    
+    public void eliminarMedicamento(Medicamento med) throws IOException{
+        medicamentoEJB.remove(med);
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+    }
 
     public List<Medicamento> getListaMedicamentos() {
         return listaMedicamentos;
@@ -48,6 +68,4 @@ public class MedicamentoControlador implements Serializable{
     public void setMedicamento(Medicamento medicamento) {
         this.medicamento = medicamento;
     }
-    
-    
 }
