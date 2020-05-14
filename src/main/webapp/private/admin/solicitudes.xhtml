@@ -22,7 +22,8 @@
                             <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
                         </f:facet>
                     </p:toolbar>
-                    <br></br>
+                    
+                    <h2 id="titulo"><p:outputLabel value="Solicitudes pendientes"/></h2>
                     <p:accordionPanel var="sol" value="#{citaControlador.listaSolicitudes}">
                         <p:tab title="Paciente: #{sol.paciente.nombre} #{sol.paciente.apellidos},  edad: #{citaControlador.getEdad(sol.paciente.fechaNacimiento)}, dni: #{sol.paciente.dni}">
                             <h:outputLabel for="descripcion" value="Descripción: " style="font-weight: bold;"/>

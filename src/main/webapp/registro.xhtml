@@ -9,35 +9,38 @@
     </h:head>
     <h:body id="principal">
         <h:form id="h_form">
+            <p:growl id="growl" showDetail="false" sticky="false"/>  
+            
             <div class="login-page">
+                
                 <div class="form">
                     <div class="login-form">
-                        <p class="message2">Datos personales*</p>
-                        <hr></hr>
-                        <p:inputText label="nombre" placeholder="nombre" required="true" value="#{registroControlador.paciente.nombre}"/>
-                        
-                        <p:inputText label="apellidos" placeholder="apellidos" required="true" value="#{registroControlador.paciente.apellidos}"/>
-                        
-                        <p:inputText label="dni" placeholder="dni" required="true" value="#{registroControlador.paciente.dni}"/>
-                        
-                        <p:calendar label="fecha de nacimiento" placeholder="fecha de nacimiento" required="true" locale="es" value="#{registroControlador.paciente.fechaNacimiento}"/>
-                        
-                        <p class="message2">Datos de usuario*</p>
-                        <hr></hr>
-                        <p:inputText label="nombre de usuario" placeholder="nombre de usuario" required="true" value="#{registroControlador.usuario.nombreUsuario}"/>
-                        
-                        <p:password label="contraseña" placeholder="contraseña" required="true" value="#{registroControlador.usuario.clave}" match="repetir"/>
-                        
-                        <p:password id="repetir" label="repetir contraseña" required="true" placeholder="repetir contraseña"/>
-                        
-                        <p:commandButton value="Registrarse" actionListener="#{registroControlador.registra()}"/>
-                        <h:link class="message" outcome="index.xhtml" value="Iniciar sesión"/>
-                        
-                        <h:outputScript library="js" name="calendar.js"/>
+                        <div>
+                            <p class="message2">Datos personales*</p>
+                            <hr></hr>
+                            <p:inputText label="nombre" placeholder="nombre" required="true" value="#{registroControlador.paciente.nombre}"/>
+
+                            <p:inputText label="apellidos" placeholder="apellidos" required="true" value="#{registroControlador.paciente.apellidos}"/>
+
+                            <p:inputText label="dni" placeholder="dni" required="true" value="#{registroControlador.paciente.dni}"/>
+
+                            <p:calendar label="fecha de nacimiento" placeholder="fecha de nacimiento" required="true" locale="es" value="#{registroControlador.paciente.fechaNacimiento}"/>
+                        </div>
+                        <div>
+                            <p class="message2">Datos de usuario*</p>
+                            <hr></hr>
+                            <p:inputText label="nombre de usuario" placeholder="nombre de usuario" required="true" value="#{registroControlador.usuario.nombreUsuario}"/>
+
+                            <p:password label="contraseña" placeholder="contraseña" required="true" value="#{registroControlador.usuario.clave}" match="repetir"/>
+
+                            <p:password id="repetir" label="repetir contraseña" required="true" placeholder="repetir contraseña"/>
+
+                            <p:commandButton value="Registrarse" update="@form" actionListener="#{registroControlador.registra()}"/>
+                            <h:link class="message" outcome="index.xhtml" value="Iniciar sesión"/>
+
+                            <h:outputScript library="js" name="calendar.js"/>
+                        </div>
                     </div>
-                    <p:messages id="messages" showDetail="true" closable="true">
-                        <p:autoUpdate/>
-                    </p:messages>
                 </div>
             </div>
         </h:form>
