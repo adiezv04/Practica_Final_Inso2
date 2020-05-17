@@ -23,6 +23,9 @@
                     <br></br>
                     
                     <p:dataTable var="notificacion" value="#{notificacionesControlador.listaNotificaciones}" emptyMessage="No hay mensajes.">
+                        <f:facet name="header">
+                            Notificaciones
+                        </f:facet>
                         <p:column headerText="De:">
                             <h:outputText value="#{notificacion.emisor}"/>
                         </p:column>

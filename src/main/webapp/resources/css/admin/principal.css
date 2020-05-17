@@ -1,3 +1,9 @@
+#titulo{
+    text-align: center;
+    color: #036fab;
+    font-size: 20px;
+}
+
 #bot-right{
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
     float: left;
@@ -14,7 +20,7 @@
     text-align: center;
     text-decoration: none;
     margin-top: 35px;
-    color: orangered;
+    color: darkblue;
 }
 
 #bot-right:hover{
@@ -40,7 +46,7 @@
     text-align: center;
     text-decoration: none;
     margin-top: 35px; 
-    color: orangered;
+    color: darkblue;
 }
 
 #bot-left:hover{
@@ -63,7 +69,7 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-    color: orangered;    
+    color: darkblue;    
 }
 
 #top-right:hover{
@@ -88,7 +94,7 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-    color: orangered;  
+    color: darkblue;  
 }
 
 #top-left:hover{
