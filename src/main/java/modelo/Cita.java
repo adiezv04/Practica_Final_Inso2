@@ -24,11 +24,11 @@ public class Cita implements Serializable{
     private int idCita;
     
     @JoinColumn(name="idDoctor")
-    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Doctor doctor;
     
     @JoinColumn(name="idPaciente")
-    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Paciente paciente;
     
     @Column(name="fecha")

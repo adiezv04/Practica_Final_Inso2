@@ -23,11 +23,11 @@ public class Receta implements Serializable{
     private int idReceta;
     
     @JoinColumn(name="idPaciente")
-    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Paciente paciente;
     
     @JoinColumn(name="idMedicamento")
-    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Medicamento medicamento;
     
     @Column(name="comentario")

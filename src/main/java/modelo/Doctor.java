@@ -38,7 +38,7 @@ public class Doctor implements Serializable{
     private String especialidad;
     
     @JoinColumn(name="idUsuario")
-    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Usuario usuario;
 
     public int getIdDoctor() {

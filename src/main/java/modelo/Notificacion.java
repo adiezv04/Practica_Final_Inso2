@@ -34,7 +34,7 @@ public class Notificacion implements Serializable{
     private Date fecha;
     
     @JoinColumn(name="idUsuario")
-    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.REMOVE})
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Usuario usuario;
     
     @Column(name="emisor")

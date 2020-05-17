@@ -23,7 +23,9 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import modelo.Cita;
+import modelo.Doctor;
 import modelo.Paciente;
+import modelo.Usuario;
 
 /**
  *
@@ -39,8 +41,14 @@ public class CitasPacienteControlador implements Serializable{
     
     @PostConstruct
     public void inicia(){
-        Paciente pac = (Paciente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paciente");
-        listaCitas = citaEJB.buscarCita(pac);
+        Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        if(usuario.getTipoUsuario().equals("paciente")){
+            Paciente pac = (Paciente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paciente");
+            listaCitas = citaEJB.buscarCita(pac);
+        }else{
+            Doctor doc = (Doctor) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("doctor");
+            listaCitas = citaEJB.buscarCitas(doc);
+        } 
     }
     
     public void anularCita(Cita cita) throws IOException{

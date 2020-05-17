@@ -13,7 +13,6 @@ import javax.persistence.Query;
 import modelo.Cita;
 import modelo.Doctor;
 import modelo.Paciente;
-import modelo.Usuario;
 
 /**
  *

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/doctor.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:toolbar id="toolbar">
+                        <f:facet name="left">
+                            <p:outputLabel value="Dr. #{principalControlador.doctor.apellidos}" style="text-transform: uppercase;"/>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:commandButton value="Notificaciones" action="notificaciones.xhtml"/>
+                            <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
+                        </f:facet>
+                    </p:toolbar>
+                    <br></br> 
+                    <p:dataTable var="cita" value="#{citasPacienteControlador.listaCitas}" style="text-align: center" >
+                        <f:facet name="header">
+                            Citas confirmadas
+                        </f:facet>
+                        <p:column headerText="Fecha">
+                            <h:outputText value="#{citasPacienteControlador.dameFecha(cita.fecha)}" />
+                        </p:column>
+                        <p:column headerText="Hora">
+                            <h:outputText value="#{citasPacienteControlador.dameHora(cita.fecha)}" />
+                        </p:column>
+                        <p:column headerText="Paciente">
+                            <h:outputText value="#{cita.paciente.nombre} #{cita.paciente.apellidos}, DNI: #{cita.paciente.dni}" />
+                        </p:column>
+                        <p:column style="width: 10%">
+                            <p:commandButton value="Anular" icon="ui-icon-cancel" actionListener="#{citasPacienteControlador.anularCita(cita)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </ui:define>
+            
+        </ui:composition>
+
+    </body>
+</html>
