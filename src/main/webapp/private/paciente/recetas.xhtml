@@ -22,7 +22,20 @@
                         </f:facet>
                     </p:toolbar>
                     <br></br>
-                     
+                    <p:dataTable value="#{recetasControlador.listaRecetas}" var="receta">
+                        <f:facet name="header">
+                            <p:outputLabel value="Recetas"/>
+                        </f:facet>
+                        <p:column headerText="Medicamento: ">
+                            <h:outputText value="#{receta.medicamento.nombre}"/>
+                        </p:column>
+                        <p:column headerText="Detalles del medicamento: ">
+                            <h:outputText value="#{receta.medicamento.descripcion}"/>
+                        </p:column>
+                        <p:column headerText="Comentarios del doctor: ">
+                            <h:outputText value="#{receta.comentario}"/>
+                        </p:column>
+                    </p:dataTable>
                 </h:form>
             </ui:define>
 

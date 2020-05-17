@@ -39,7 +39,7 @@ public class Paciente implements Serializable{
     private boolean ingresado;
     
     @JoinColumn(name="idUsuario")
-    @OneToOne(cascade=CascadeType.PERSIST)
+    @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
     private Usuario usuario;
 
     public int getIdPaciente() {

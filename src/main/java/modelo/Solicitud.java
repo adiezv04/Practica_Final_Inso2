@@ -23,7 +23,7 @@ public class Solicitud implements Serializable{
     private int idSolicitud;
     
     @JoinColumn(name="idPaciente")
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.REMOVE})
     private Paciente paciente;
     
     @Column(name="descripcion")

@@ -1,16 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <body>
-        <div>Añadir medico</div>
+
+        <ui:composition template="./../../WEB-INF/template/admin.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:toolbar id="toolbar">
+                        <f:facet name="left">
+                            <p:outputLabel value="Administrador" style="text-transform: uppercase;"/>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:commandButton value="Notificaciones" action="notificaciones.xhtml"/>
+                            <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
+                        </f:facet>
+                    </p:toolbar>
+                    <br></br>
+                    <p:messages id="messages" showDetail="false" closable="true">
+                        <p:autoUpdate/>
+                    </p:messages>
+                    <center>
+                    
+                        <p:panel id="panel" header="Registrar nuevo Doctor" style="margin-bottom:10px;">
+                            <h:panelGrid columns="4" cellpadding="5">
+                                <p:outputLabel for="text1" value="Nombre:" />
+                                <p:inputText id="text1"  value="#{medicoControlador.doctor.nombre}"/>
+
+                                <p:outputLabel for="text2" value="Apellidos:" />
+                                <p:inputText id="text2"  value="#{medicoControlador.doctor.apellidos}"/>
+
+                                <span title="Campo en el cual esta especializado el doctor (ej: Dermatología, Pediatría...)">Especialidad: *</span>
+                                <p:inputText label="Especialidad"  value="#{medicoControlador.doctor.especialidad}"/>
+                                <p:outputLabel/><p:outputLabel/>
+                                <p:outputLabel for="text4" value="Nombre de usuario:"/>
+                                <p:inputText id="text4"  value="#{medicoControlador.usuario.nombreUsuario}"/>
+
+                                <p:outputLabel for="text5" value="Contraseña:"/>
+                                <p:password id="text5"  value="#{medicoControlador.usuario.clave}"/>
+                            </h:panelGrid>
+                        </p:panel>
+                        <p:commandButton value="Aceptar" actionListener="#{medicoControlador.crearDoctor()}"/>
+                    </center>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </body>
 </html>

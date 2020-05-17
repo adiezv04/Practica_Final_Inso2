@@ -7,6 +7,7 @@ package EJB;
 
 import java.util.List;
 import javax.ejb.Local;
+import modelo.Paciente;
 import modelo.Receta;
 
 /**
@@ -29,5 +30,7 @@ public interface RecetaFacadeLocal {
     List<Receta> findRange(int[] range);
 
     int count();
+    
+    List<Receta> recetasUsuario(Paciente paciente);
     
 }

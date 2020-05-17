@@ -23,12 +23,15 @@ public class Receta implements Serializable{
     private int idReceta;
     
     @JoinColumn(name="idPaciente")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
     private Paciente paciente;
     
     @JoinColumn(name="idMedicamento")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
     private Medicamento medicamento;
+    
+    @Column(name="comentario")
+    private String comentario;
 
     public int getIdReceta() {
         return idReceta;
@@ -54,6 +57,14 @@ public class Receta implements Serializable{
         this.medicamento = medicamento;
     }
 
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
