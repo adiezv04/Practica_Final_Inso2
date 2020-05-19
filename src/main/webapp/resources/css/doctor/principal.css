@@ -1,8 +1,6 @@
-#bottomDiv{
+#bot-right{
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
     float: left;
-    margin-top: 35px;
-    margin-left: 33%;
     width: 33%;
     height: 230px;
     background-image:url(../../img/ingresado.jpg);
@@ -15,10 +13,37 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-        
+    margin-top: 35px;
+    color: #006699;
 }
 
-#bottomDiv:hover{
+#bot-right:hover{
+    filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
+}
+
+#bot-left{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+    float: left;
+    margin-left: 12.5%;
+    margin-right: 8%;
+    width: 33%;
+    height: 230px;
+    background-image:url(../../img/ingresado.jpg);
+    filter: brightness(0.4);
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 35px; 
+    color: #006699;
+}
+
+#bot-left:hover{
     filter: brightness(1);
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
 }

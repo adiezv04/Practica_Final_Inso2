@@ -77,7 +77,7 @@ public class PrincipalControlador implements Serializable{
             }
         }
     }
-
+    
     public Usuario getUsuario() {
         return usuario;
     }

@@ -1,16 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <body>
-        <div>TODO write content</div>
+
+        <ui:composition template="./../../WEB-INF/template/doctor.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:toolbar id="toolbar">
+                        <f:facet name="left">
+                            <p:outputLabel value="Dr. #{principalControlador.doctor.apellidos}" style="text-transform: uppercase;"/>
+                        </f:facet>
+                        <f:facet name="right">
+                            <p:commandButton value="Notificaciones" action="notificaciones.xhtml"/>
+                            <p:commandButton value="Principal" icon="ui-icon-home" action="principal.xhtml"/>
+                        </f:facet>
+                    </p:toolbar>
+                    <br></br>
+                    <p:messages id="messages" showDetail="true" closable="true">
+                        <p:autoUpdate/>
+                    </p:messages>
+                    <center>
+                        <p:panelGrid  columns="2" layout="tabular" style="text-align: center" id="panel">
+                            <f:facet name="header"><h:outputText value="Dar una receta"/></f:facet>
+                            <h:outputText value="Paciente: "/>
+                            <p:selectOneMenu value="#{recetasControlador.paciente.idPaciente}" effect="fade"  filter="true" filterMatchMode="contains" style="width: 90%">
+                                <f:selectItems value="#{recetasControlador.listaPacientes}" var="p" itemValue="#{p.idPaciente}" itemLabel="#{p.nombre} #{p.apellidos}, #{p.dni}"/>
+                            </p:selectOneMenu>
+                            <h:outputText value="Medicamento: "/>
+                            <p:selectOneMenu value="#{recetasControlador.medicamento.idMedicamento}" effect="fade"  filter="true" filterMatchMode="contains" style="width: 90%">
+                                <f:selectItems value="#{recetasControlador.listaMedicamentos}" var="m" itemValue="#{m.idMedicamento}" itemLabel="#{m.nombre}"/>
+                            </p:selectOneMenu>
+                            <h:outputText value="Comentarios adicionales: "/>
+                            <p:inputTextarea cols="27" rows="7" value="#{recetasControlador.receta.comentario}"/>
+                            <f:facet name="footer">
+                                <center><p:commandButton value="Aceptar" actionListener="#{recetasControlador.crearReceta()}"/></center>
+                            </f:facet>
+                        </p:panelGrid>
+                    </center>
+                </h:form>
+            </ui:define>
+            
+        </ui:composition>
+
     </body>
 </html>
