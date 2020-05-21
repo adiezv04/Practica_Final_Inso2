@@ -37,6 +37,7 @@ public class IngresoControlador implements Serializable{
     private List<Planta> listaPlantas;
     private Paciente paciente;
     private Doctor doctor;
+    private String detalles;
     
     @PostConstruct
     public void inicia(){
@@ -72,6 +73,7 @@ public class IngresoControlador implements Serializable{
                     paciente.setIngresado(true);
                     pacienteEJB.edit(paciente);
                     habitacionObj.setPaciente(paciente);
+                    habitacionObj.setDoctor(doctor);
                     habitacionEJB.edit(habitacionObj);
                 }catch(Exception e){
                     System.out.println("Error al ingresar paciente en habitacion " + e.getMessage());
@@ -133,6 +135,13 @@ public class IngresoControlador implements Serializable{
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
-    
-    
+
+    public String getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(String detalles) {
+        this.detalles = detalles;
+    }
+
 }

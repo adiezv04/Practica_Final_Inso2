@@ -25,12 +25,16 @@
                     <p:messages showDetail="true" closable="true">
                         <p:autoUpdate/>
                     </p:messages>
-                    <p:panelGrid columns="2">
-                        <h:outputText value="Seleccionar paciente a ingresar: "/>
-                        <p:selectOneMenu value="#{ingresoControlador.paciente.idPaciente}">
-                            <f:selectItems value="#{ingresoControlador.listaPacientes}" var="p" itemValue="#{p.idPaciente}" itemLabel="#{p.nombre} #{p.apellidos}, #{p.dni}"/> 
-                        </p:selectOneMenu>
+                    <center>
+                        <p:panelGrid columns="2">
+                            <h:outputText value="Seleccionar paciente a ingresar: "/>
+                            <p:selectOneMenu value="#{ingresoControlador.paciente.idPaciente}">
+                                <f:selectItems value="#{ingresoControlador.listaPacientes}" var="p" itemValue="#{p.idPaciente}" itemLabel="#{p.nombre} #{p.apellidos}, #{p.dni}"/> 
+                            </p:selectOneMenu>
+                            <h:outputText value="Detalles del ingreso (ejemplo: enfermedad del paciente): "/>
+                            <p:inputTextarea cols="29" value="#{ingresoControlador.detalles}"/>
                         </p:panelGrid>    
+                    </center>
                     <br></br>
                     <p:tabView value="#{ingresoControlador.listaPlantas}" var="planta">
                         <p:tab title="Planta #{planta.numero}">

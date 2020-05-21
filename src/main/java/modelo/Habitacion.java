@@ -36,6 +36,9 @@ public class Habitacion implements Serializable{
     @JoinColumn(name="idDoctor")
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Doctor doctor;
+    
+    @Column
+    private String detalles;
 
     public int getIdHabitacion() {
         return idHabitacion;
@@ -75,6 +78,14 @@ public class Habitacion implements Serializable{
 
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
+    }
+
+    public String getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(String detalles) {
+        this.detalles = detalles;
     }
 
     @Override
