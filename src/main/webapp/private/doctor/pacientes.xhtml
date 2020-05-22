@@ -26,7 +26,7 @@
                         <p:autoUpdate/>
                     </p:messages>
                     
-                    <p:dataTable value="#{pacientesControlador.listaHabitaciones}" var="habitacion" style="text-align: center">
+                    <p:dataTable value="#{pacientesControlador.listaHabitaciones}" var="habitacion" style="text-align: center" emptyMessage="No hay pacientes ingresados">
                         <f:facet name="header">
                             <h:outputText value="Pacientes ingresados a su cargo"/>
                         </f:facet>

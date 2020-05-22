@@ -1,6 +1,7 @@
 package controlador;
 
 import EJB.HabitacionFacadeLocal;
+import EJB.NotificacionFacadeLocal;
 import EJB.PacienteFacadeLocal;
 import java.io.IOException;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import modelo.Doctor;
 import modelo.Habitacion;
+import utils.CrearNotificacion;
 
 /**
  *
@@ -27,6 +29,8 @@ public class PacientesControlador implements Serializable{
     private HabitacionFacadeLocal habitacionEJB;
     @EJB
     private PacienteFacadeLocal pacienteEJB;
+    @EJB
+    NotificacionFacadeLocal notificacionEJB;
     
     private List<Habitacion> listaHabitaciones;
     private Doctor doctor;
@@ -39,12 +43,16 @@ public class PacientesControlador implements Serializable{
     
     public void darAlta(Habitacion habitacion){
         try{
+            CrearNotificacion not = new CrearNotificacion();
+            not.crea(habitacion.getPaciente().getUsuario(), "Dr. " + doctor.getApellidos(), "Usted ha sido dado de alta. ", notificacionEJB);
+            
             habitacion.getPaciente().setIngresado(false);
             pacienteEJB.edit(habitacion.getPaciente());
             habitacion.setDoctor(null);
             habitacion.setPaciente(null);
             habitacion.setDetalles(null);
             habitacionEJB.edit(habitacion);
+                    
             ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
             ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
         }catch(IOException e){

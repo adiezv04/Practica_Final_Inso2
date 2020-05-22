@@ -25,9 +25,8 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import modelo.Cita;
 import modelo.Doctor;
-import modelo.Notificacion;
-import modelo.Paciente;
 import modelo.Solicitud;
+import utils.CrearNotificacion;
 
 /**
  *
@@ -73,22 +72,16 @@ public class CitaControlador implements Serializable{
             cita.setFecha(buscaFecha(doctor, sol.getHorario()));
             citaEJB.create(cita);
             solicitudEJB.remove(sol);
-            creaNotificacion(sol.getPaciente());
+            
+            CrearNotificacion not = new CrearNotificacion();
+            not.crea(sol.getPaciente().getUsuario(), "Admin", "Tiene una nueva cita.", notificacionEJB);
+            not.crea(cita.getDoctor().getUsuario(), "Admin", "Tiene una nueva cita.", notificacionEJB);
+            
             ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
             ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
         }catch(IOException e){
             System.out.println("Error al crear cita. " + e.getMessage());
         }  
-    }
-    
-    public void creaNotificacion(Paciente pac){
-        Notificacion notificacion = new Notificacion();
-        notificacion.setFecha(new Date());
-        notificacion.setEmisor("Admin");
-        notificacion.setLeida(false);
-        notificacion.setUsuario(pac.getUsuario());
-        notificacion.setTexto("Tiene una nueva cita.");
-        notificacionEJB.create(notificacion);
     }
     
     public Date buscaFecha(Doctor doc, String horario){

@@ -22,7 +22,7 @@
                         </f:facet>
                     </p:toolbar>
                     <br></br>
-                    <p:dataTable value="#{recetasControlador.listaRecetas}" var="receta">
+                    <p:dataTable value="#{recetasControlador.listaRecetas}" var="receta" emptyMessage="No hay recetas para usted.">
                         <f:facet name="header">
                             <p:outputLabel value="Recetas"/>
                         </f:facet>

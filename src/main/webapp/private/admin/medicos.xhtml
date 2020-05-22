@@ -30,19 +30,19 @@
                         <p:panel id="panel" header="Registrar nuevo Doctor" style="margin-bottom:10px;">
                             <h:panelGrid columns="4" cellpadding="5">
                                 <p:outputLabel for="text1" value="Nombre:" />
-                                <p:inputText id="text1"  value="#{medicoControlador.doctor.nombre}"/>
+                                <p:inputText id="text1"  value="#{medicoControlador.doctor.nombre}" required="true"/>
 
                                 <p:outputLabel for="text2" value="Apellidos:" />
-                                <p:inputText id="text2"  value="#{medicoControlador.doctor.apellidos}"/>
+                                <p:inputText id="text2"  value="#{medicoControlador.doctor.apellidos}" required="true"/>
 
                                 <span title="Campo en el cual esta especializado el doctor (ej: Dermatología, Pediatría...)">Especialidad: *</span>
-                                <p:inputText label="Especialidad"  value="#{medicoControlador.doctor.especialidad}"/>
+                                <p:inputText label="Especialidad"  value="#{medicoControlador.doctor.especialidad}" required="true"/>
                                 <p:outputLabel/><p:outputLabel/>
                                 <p:outputLabel for="text4" value="Nombre de usuario:"/>
-                                <p:inputText id="text4"  value="#{medicoControlador.usuario.nombreUsuario}"/>
+                                <p:inputText id="text4"  value="#{medicoControlador.usuario.nombreUsuario}" required="true"/>
 
                                 <p:outputLabel for="text5" value="Contraseña:"/>
-                                <p:password id="text5"  value="#{medicoControlador.usuario.clave}"/>
+                                <p:password id="text5"  value="#{medicoControlador.usuario.clave}" required="true"/>
                             </h:panelGrid>
                         </p:panel>
                         <p:commandButton value="Aceptar" actionListener="#{medicoControlador.crearDoctor()}"/>

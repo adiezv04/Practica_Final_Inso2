@@ -6,6 +6,7 @@
 package controlador;
 
 import EJB.CitaFacadeLocal;
+import EJB.NotificacionFacadeLocal;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -26,6 +27,7 @@ import modelo.Cita;
 import modelo.Doctor;
 import modelo.Paciente;
 import modelo.Usuario;
+import utils.CrearNotificacion;
 
 /**
  *
@@ -37,6 +39,8 @@ public class CitasPacienteControlador implements Serializable{
     
     @EJB
     private CitaFacadeLocal citaEJB;
+    @EJB
+    private NotificacionFacadeLocal notificacionEJB;
     private List<Cita> listaCitas;
     
     @PostConstruct
@@ -52,7 +56,12 @@ public class CitasPacienteControlador implements Serializable{
     }
     
     public void anularCita(Cita cita) throws IOException{
+        CrearNotificacion not = new CrearNotificacion();
+        not.crea(cita.getDoctor().getUsuario(), "Sistema ", "Le han anulado una cita.", notificacionEJB);
+        not.crea(cita.getPaciente().getUsuario(), "Sistema ", "Le han anulado una cita.", notificacionEJB);
+        
         citaEJB.remove(cita);
+        
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
     }

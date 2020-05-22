@@ -40,7 +40,7 @@ public class RegistroControlador implements Serializable{
     
     public void registra(){
         if(usuarioEJB.usuarioDisponible(usuario) == false){
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error ", "Nombre de usuario no disponible"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error. Nombre de usuario no disponible"));
         }else{
             try{
                 usuario.setTipoUsuario("paciente");
@@ -48,7 +48,7 @@ public class RegistroControlador implements Serializable{
                 paciente.setIngresado(false);
                 pacienteEJB.create(paciente);
                 
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info ", "Usuario registrado"));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Info. Usuario registrado"));
             }catch(Exception e){
                 System.out.println("Error al insertar paciente "+e.getMessage());
             }  

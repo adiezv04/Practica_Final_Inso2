@@ -2,6 +2,7 @@
 package controlador;
 
 import EJB.HabitacionFacadeLocal;
+import EJB.NotificacionFacadeLocal;
 import EJB.PacienteFacadeLocal;
 import EJB.PlantaFacadeLocal;
 import java.io.Serializable;
@@ -17,6 +18,7 @@ import modelo.Doctor;
 import modelo.Habitacion;
 import modelo.Paciente;
 import modelo.Planta;
+import utils.CrearNotificacion;
 
 /**
  *
@@ -31,6 +33,8 @@ public class IngresoControlador implements Serializable{
     HabitacionFacadeLocal habitacionEJB;
     @EJB
     PlantaFacadeLocal plantaEJB;
+    @EJB
+    NotificacionFacadeLocal notificacionEJB;
     
     private List<Paciente> listaPacientes;
     private List<Habitacion> listaHabitaciones;
@@ -75,6 +79,11 @@ public class IngresoControlador implements Serializable{
                     habitacionObj.setPaciente(paciente);
                     habitacionObj.setDoctor(doctor);
                     habitacionEJB.edit(habitacionObj);
+                    
+                    CrearNotificacion not = new CrearNotificacion();
+                    not.crea(paciente.getUsuario(), "Dr. " + doctor.getApellidos(), "Usted debe ingresar en la habitacion " + habitacionObj.getNumero(), notificacionEJB);
+                    
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Paciente ingresado correctamete."));
                 }catch(Exception e){
                     System.out.println("Error al ingresar paciente en habitacion " + e.getMessage());
                 }

@@ -6,6 +6,7 @@
 package controlador;
 
 import EJB.MedicamentoFacadeLocal;
+import EJB.NotificacionFacadeLocal;
 import EJB.PacienteFacadeLocal;
 import EJB.RecetaFacadeLocal;
 import java.io.Serializable;
@@ -16,10 +17,12 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import modelo.Doctor;
 import modelo.Medicamento;
 import modelo.Paciente;
 import modelo.Receta;
 import modelo.Usuario;
+import utils.CrearNotificacion;
 
 /**
  *
@@ -34,11 +37,14 @@ public class RecetasControlador implements Serializable{
     private PacienteFacadeLocal pacienteEJB;
     @EJB
     private MedicamentoFacadeLocal medicamentoEJB;
+    @EJB
+    private NotificacionFacadeLocal notificacionEJB;
     
     private List<Receta> listaRecetas;
     private List<Medicamento> listaMedicamentos;
     private List<Paciente> listaPacientes;
     
+    private Doctor doctor;
     private Receta receta;
     private Paciente paciente;
     private Medicamento medicamento;
@@ -55,6 +61,7 @@ public class RecetasControlador implements Serializable{
             listaPacientes = pacienteEJB.findAll();
             medicamento = new Medicamento();
             paciente = new Paciente();
+            doctor = (Doctor) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("doctor");
         } 
     }
     
@@ -75,6 +82,8 @@ public class RecetasControlador implements Serializable{
             receta.setMedicamento(medicamento);
             receta.setPaciente(paciente);
             recetaEJB.create(receta);
+            CrearNotificacion not = new CrearNotificacion();
+            not.crea(receta.getPaciente().getUsuario(), "Dr. " + doctor.getApellidos(), "Tiene una nueva receta.", notificacionEJB);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Receta creada correctamente."));
         }catch(Exception e){
             System.out.println("Error al insertar receta " + e.getMessage());

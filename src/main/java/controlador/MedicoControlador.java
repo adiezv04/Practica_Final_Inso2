@@ -6,6 +6,7 @@
 package controlador;
 
 import EJB.DoctorFacadeLocal;
+import EJB.UsuarioFacadeLocal;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -25,6 +26,8 @@ import modelo.Usuario;
 public class MedicoControlador implements Serializable{
     @EJB
     private DoctorFacadeLocal doctorEJB;
+    @EJB
+    private UsuarioFacadeLocal usuarioEJB;
     
     private Doctor doctor;
     private Usuario usuario;
@@ -36,14 +39,18 @@ public class MedicoControlador implements Serializable{
     }
     
     public void crearDoctor(){
-        try{
-            usuario.setTipoUsuario("doctor");
-            doctor.setUsuario(usuario);
-            doctorEJB.create(doctor);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info Doctor registrado con éxito.", ""));
-        }catch(Exception e){
-            System.err.println("Error al insertar doctor " + e.getMessage());
-        }
+        if(usuarioEJB.usuarioDisponible(usuario)==false){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error. Nombre de usuario no disponible.", ""));
+        }else{
+            try{
+                usuario.setTipoUsuario("doctor");
+                doctor.setUsuario(usuario);
+                doctorEJB.create(doctor);
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info Doctor registrado con éxito.", ""));
+            }catch(Exception e){
+                System.err.println("Error al insertar doctor " + e.getMessage());
+            }
+        }    
     }
 
     public Usuario getUsuario() {
