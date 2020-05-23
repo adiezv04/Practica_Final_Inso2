@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Named
 @ViewScoped

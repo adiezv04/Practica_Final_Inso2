@@ -31,7 +31,7 @@ import utils.CrearNotificacion;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Named
 @ViewScoped

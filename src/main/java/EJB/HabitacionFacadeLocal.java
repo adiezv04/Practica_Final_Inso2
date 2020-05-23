@@ -12,7 +12,7 @@ import modelo.Habitacion;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Local
 public interface HabitacionFacadeLocal {

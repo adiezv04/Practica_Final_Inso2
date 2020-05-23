@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Entity
 @Table(name="doctor")

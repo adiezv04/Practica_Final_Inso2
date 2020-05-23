@@ -12,7 +12,7 @@ import modelo.Doctor;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Stateless
 public class DoctorFacade extends AbstractFacade<Doctor> implements DoctorFacadeLocal {

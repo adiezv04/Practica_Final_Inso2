@@ -11,7 +11,7 @@ import modelo.Planta;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Local
 public interface PlantaFacadeLocal {

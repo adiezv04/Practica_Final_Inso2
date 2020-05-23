@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 
 @Entity

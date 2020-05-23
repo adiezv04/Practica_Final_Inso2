@@ -12,7 +12,7 @@ import modelo.Solicitud;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Stateless
 public class SolicitudFacade extends AbstractFacade<Solicitud> implements SolicitudFacadeLocal {

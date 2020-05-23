@@ -12,7 +12,7 @@ import modelo.Receta;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Local
 public interface RecetaFacadeLocal {

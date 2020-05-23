@@ -1,18 +1,13 @@
 package utils;
 
 import EJB.NotificacionFacadeLocal;
-import java.io.Serializable;
 import java.util.Date;
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
 import modelo.Notificacion;
 import modelo.Usuario;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 public class CrearNotificacion{
 

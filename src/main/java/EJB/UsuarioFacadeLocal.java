@@ -11,7 +11,7 @@ import modelo.Usuario;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Local
 public interface UsuarioFacadeLocal {

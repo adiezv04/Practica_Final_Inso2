@@ -11,7 +11,7 @@ import modelo.Medicamento;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Local
 public interface MedicamentoFacadeLocal {

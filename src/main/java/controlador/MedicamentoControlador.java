@@ -20,7 +20,7 @@ import modelo.Medicamento;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Named
 @ViewScoped     

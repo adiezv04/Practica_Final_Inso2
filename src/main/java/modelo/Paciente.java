@@ -12,7 +12,7 @@ import javax.persistence.*;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Entity
 @Table(name="paciente")

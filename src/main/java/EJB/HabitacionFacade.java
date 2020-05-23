@@ -15,7 +15,7 @@ import modelo.Habitacion;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Stateless
 public class HabitacionFacade extends AbstractFacade<Habitacion> implements HabitacionFacadeLocal {

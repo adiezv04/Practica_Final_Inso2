@@ -19,7 +19,7 @@ import modelo.Solicitud;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Named
 @ViewScoped

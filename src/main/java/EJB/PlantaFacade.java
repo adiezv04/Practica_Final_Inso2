@@ -12,7 +12,7 @@ import modelo.Planta;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Stateless
 public class PlantaFacade extends AbstractFacade<Planta> implements PlantaFacadeLocal {

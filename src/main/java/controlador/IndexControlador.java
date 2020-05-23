@@ -17,7 +17,7 @@ import modelo.Usuario;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Named
 @ViewScoped

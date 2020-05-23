@@ -15,7 +15,7 @@ import modelo.Receta;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Stateless
 public class RecetaFacade extends AbstractFacade<Receta> implements RecetaFacadeLocal {

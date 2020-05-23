@@ -11,7 +11,7 @@ import modelo.Solicitud;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Local
 public interface SolicitudFacadeLocal {

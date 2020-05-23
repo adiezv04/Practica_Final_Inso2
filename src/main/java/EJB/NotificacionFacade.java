@@ -15,7 +15,7 @@ import modelo.Usuario;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Stateless
 public class NotificacionFacade extends AbstractFacade<Notificacion> implements NotificacionFacadeLocal {

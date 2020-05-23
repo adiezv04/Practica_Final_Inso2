@@ -12,7 +12,7 @@ import modelo.Usuario;
 
 /**
  *
- * @author "adrian"
+ * 
  */
 @Local
 public interface NotificacionFacadeLocal {

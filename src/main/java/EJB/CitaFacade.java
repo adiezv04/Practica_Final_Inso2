@@ -16,7 +16,7 @@ import modelo.Paciente;
 
 /**
  *
- * @author "adrian"
+ * author "Adrián" , "Daniel"
  */
 @Stateless
 public class CitaFacade extends AbstractFacade<Cita> implements CitaFacadeLocal {
