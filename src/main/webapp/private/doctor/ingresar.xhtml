@@ -38,11 +38,12 @@
                     <br></br>
                     <p:tabView value="#{ingresoControlador.listaPlantas}" var="planta">
                         <p:tab title="Planta #{planta.numero}">
-                            <p:dataGrid value="#{ingresoControlador.buscaHabitaciones(planta.idPlanta)}" columns="5" var="habitacion">
+                            <p:dataGrid value="#{ingresoControlador.buscaHabitaciones(planta.idPlanta)}" columns="5" var="habitacion" style="text-align: center">
                                 <f:facet name="header">
                                     <h:outputText value="Planta especializada en #{planta.especialidad}"/>
                                 </f:facet>
-                                <p:commandButton value="#{habitacion.numero}" style="color: green" actionListener="#{ingresoControlador.ingresa(habitacion.numero)}"/> 
+                                <p:commandButton value="#{habitacion.numero}" style="background: #55ff00; color: black" actionListener="#{ingresoControlador.ingresa(habitacion.numero)}" rendered="#{habitacion.paciente==null}"/>
+                                <p:commandButton value="#{habitacion.numero}" style="background: red; color: black" actionListener="#{ingresoControlador.ingresa(habitacion.numero)}" rendered="#{habitacion.paciente!=null}"/>
                             </p:dataGrid>
                         </p:tab>
                     </p:tabView>

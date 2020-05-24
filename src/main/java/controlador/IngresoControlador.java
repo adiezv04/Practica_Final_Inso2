@@ -1,19 +1,21 @@
-
 package controlador;
 
 import EJB.HabitacionFacadeLocal;
 import EJB.NotificacionFacadeLocal;
 import EJB.PacienteFacadeLocal;
 import EJB.PlantaFacadeLocal;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import modelo.Doctor;
 import modelo.Habitacion;
 import modelo.Paciente;
@@ -71,6 +73,7 @@ public class IngresoControlador implements Serializable{
                 break;
             }
         }
+        
         if(paciente.isIngresado()==false){
             if(libre==true){
                 try{
@@ -83,8 +86,9 @@ public class IngresoControlador implements Serializable{
                     CrearNotificacion not = new CrearNotificacion();
                     not.crea(paciente.getUsuario(), "Dr. " + doctor.getApellidos(), "Usted debe ingresar en la habitacion " + habitacionObj.getNumero(), notificacionEJB);
                     
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Paciente ingresado correctamete."));
-                }catch(Exception e){
+                    ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+                    ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+                }catch(IOException e){
                     System.out.println("Error al ingresar paciente en habitacion " + e.getMessage());
                 }
             }else{
