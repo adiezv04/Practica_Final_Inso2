@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -184,6 +185,10 @@ public class CitaControlador implements Serializable{
        }
 
        return año;
+    }
+    
+    public void ayuda(){
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ayuda", "Se mostrarán todas las solicitudes realizadas por pacientes para obtener una cita, deberá de asignarle a cada uno un doctor acorde a su descripción."));
     }
 
     public List<Solicitud> getListaSolicitudes() {

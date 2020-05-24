@@ -15,7 +15,7 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-        
+    border-radius: 15px;
 }
 
 #bottomDiv:hover{
@@ -38,7 +38,7 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-        
+    border-radius: 15px;   
 }
 
 #top-right:hover{
@@ -63,7 +63,7 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-        
+    border-radius: 15px;    
 }
 
 #top-left:hover{

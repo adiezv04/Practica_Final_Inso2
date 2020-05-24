@@ -4,6 +4,31 @@
     font-size: 20px;
 }
 
+#bottomDiv{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+    float: left;
+    margin-top: 35px;
+    margin-left: 33%;
+    width: 33%;
+    height: 230px;
+    background-image:url(../../img/receta.jpg);
+    filter: brightness(0.4);
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+}
+
+#bottomDiv:hover{
+    filter: brightness(1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
+}
+
 #bot-right{
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
     float: left;
@@ -21,6 +46,7 @@
     text-decoration: none;
     margin-top: 35px;
     color: darkblue;
+    border-radius: 15px;
 }
 
 #bot-right:hover{
@@ -47,6 +73,7 @@
     text-decoration: none;
     margin-top: 35px; 
     color: darkblue;
+    border-radius: 15px;
 }
 
 #bot-left:hover{
@@ -69,7 +96,8 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-    color: darkblue;    
+    color: darkblue;   
+    border-radius: 15px;
 }
 
 #top-right:hover{
@@ -94,7 +122,8 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-    color: darkblue;  
+    color: darkblue; 
+    border-radius: 15px;
 }
 
 #top-left:hover{
@@ -109,4 +138,23 @@
 
 #form{
     width: 98%;
+}
+
+.libre{
+    font-size: 15px;
+    align-content: center;
+    width: 20%;
+    height: 40px;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 14px;
+}
+
+.libre:hover{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 15px 15px 0 rgba(0,0,0,0.24);
 }

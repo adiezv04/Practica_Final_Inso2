@@ -36,7 +36,7 @@
                             <p:selectOneMenu value="#{recetasControlador.medicamento.idMedicamento}" effect="fade"  filter="true" filterMatchMode="contains" style="width: 90%">
                                 <f:selectItems value="#{recetasControlador.listaMedicamentos}" var="m" itemValue="#{m.idMedicamento}" itemLabel="#{m.nombre}"/>
                             </p:selectOneMenu>
-                            <h:outputText value="Comentarios adicionales: "/>
+                            <span title="Como por ejemplo cuantas veces debe tomarlo al día y durante cuanto tiempo.">Comentarios adicionales ⓘ: </span>
                             <p:inputTextarea cols="27" rows="7" value="#{recetasControlador.receta.comentario}"/>
                             <f:facet name="footer">
                                 <center><p:commandButton value="Aceptar" actionListener="#{recetasControlador.crearReceta()}"/></center>

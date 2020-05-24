@@ -15,6 +15,7 @@
     text-decoration: none;
     margin-top: 35px;
     color: #006699;
+    border-radius: 15px;
 }
 
 #bot-right:hover{
@@ -29,7 +30,7 @@
     margin-right: 8%;
     width: 33%;
     height: 230px;
-    background-image:url(../../img/ingresado.jpg);
+    background-image:url(../../img/ingresar.jpg);
     filter: brightness(0.4);
     font-size: 26px;
     font-weight: bold;
@@ -41,6 +42,7 @@
     text-decoration: none;
     margin-top: 35px; 
     color: #006699;
+    border-radius: 15px;
 }
 
 #bot-left:hover{
@@ -63,7 +65,7 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-        
+    border-radius: 15px;
 }
 
 #top-right:hover{
@@ -88,7 +90,7 @@
     flex-direction: column;
     text-align: center;
     text-decoration: none;
-        
+    border-radius: 15px;    
 }
 
 #top-left:hover{

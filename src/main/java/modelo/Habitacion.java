@@ -25,7 +25,7 @@ public class Habitacion implements Serializable{
     private Paciente paciente;
     
     @JoinColumn(name="idPlanta")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Planta planta;
     
     @JoinColumn(name="idDoctor")
