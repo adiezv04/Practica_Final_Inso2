@@ -3,6 +3,7 @@ package controlador;
 import EJB.PacienteFacadeLocal;
 import EJB.UsuarioFacadeLocal;
 import java.io.Serializable;
+import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -34,20 +35,24 @@ public class RegistroControlador implements Serializable{
     }
     
     public void registra(){
-        if(usuarioEJB.usuarioDisponible(usuario) == false){
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error. Nombre de usuario no disponible"));
+        if(Pattern.matches("\\d{8}[[A-H]|[J-N]|[P-T]|[V-Z]]", paciente.getDni()) == false){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error. Formato de DNI incorrecto. (La letra debe estar en mayúscula.)"));
         }else{
-            try{
-                usuario.setTipoUsuario("paciente");
-                paciente.setUsuario(usuario);
-                paciente.setIngresado(false);
-                pacienteEJB.create(paciente);
-                
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Info. Usuario registrado"));
-            }catch(Exception e){
-                System.out.println("Error al insertar paciente "+e.getMessage());
-            }  
-        }
+            if(usuarioEJB.usuarioDisponible(usuario) == false){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error. Nombre de usuario no disponible"));
+            }else{
+                try{
+                    usuario.setTipoUsuario("paciente");
+                    paciente.setUsuario(usuario);
+                    paciente.setIngresado(false);
+                    pacienteEJB.create(paciente);
+
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Info. Usuario registrado con éxito."));
+                }catch(Exception e){
+                    System.out.println("Error al insertar paciente "+e.getMessage());
+                }  
+            }
+        }    
     }
     
     public Usuario getUsuario() {
