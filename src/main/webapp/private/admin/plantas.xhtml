@@ -26,8 +26,6 @@
                         <p:autoUpdate/>
                     </p:messages>
                     <br></br>
-                    
-                    
 
                     <p:tabView value="#{plantasControlador.listaPlantas}" var="planta">
                         <p:tab title="Planta #{planta.numero}">
@@ -45,10 +43,25 @@
                             </p:dataGrid>
                         </p:tab>
                     </p:tabView>
+                    <br></br>
+                    <center>
+                        <p:dataTable value="#{plantasControlador.habitacionesOcupadas()}" var="hab" style="width: 70%; align-content: center; text-align: center" filterBy="#{hab.paciente.nombre}">
+                            <f:facet name="header">
+                                <h:outputText value="Habitaciones ocupadas"/>
+                            </f:facet>
+                            <p:column headerText="Nº de habitación">
+                                <h:outputText value="#{hab.numero}"/>
+                            </p:column>
+                            <p:column headerText="Nombre del paciente ingresado" filterBy="#{hab.paciente.nombre} #{hab.paciente.apellidos}" filterMatchMode="contains" filterStyle="width: 70%">
+                                <h:outputText value="#{hab.paciente.nombre} #{hab.paciente.apellidos}"/>
+                            </p:column>
+                            <p:column headerText="Detalles">
+                                <h:outputText value="#{hab.detalles}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </center> 
                 </h:form>
-            </ui:define>
-            
+            </ui:define>   
         </ui:composition>
-
     </body>
 </html>

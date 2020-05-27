@@ -52,7 +52,7 @@ public class PrincipalControlador implements Serializable{
     
     public String cerrarSesion() throws IOException{
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "/index.xhtml";
+        return "/";
     }
     
     public void buscaPaciente(){
