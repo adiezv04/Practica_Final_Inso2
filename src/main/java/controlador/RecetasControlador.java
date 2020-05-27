@@ -48,8 +48,8 @@ public class RecetasControlador implements Serializable{
     public void inicia(){
         Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         if(usuario.getTipoUsuario().equals("paciente")){
-            Paciente pac = (Paciente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paciente");
-            listaRecetas = recetaEJB.recetasUsuario(pac);
+            paciente = (Paciente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paciente");
+            listaRecetas = recetaEJB.recetasUsuario(paciente);
         }else{
             receta = new Receta();
             listaMedicamentos = medicamentoEJB.findAll();
@@ -133,5 +133,11 @@ public class RecetasControlador implements Serializable{
         this.medicamento = medicamento;
     }
 
-    
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
 }

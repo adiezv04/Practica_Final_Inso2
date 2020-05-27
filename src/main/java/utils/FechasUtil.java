@@ -18,7 +18,7 @@ import modelo.Doctor;
  *
  * @author "Adrián", "Daniel"
  */
-public class BuscarHorario {
+public class FechasUtil {
     public Date buscaFecha(Doctor doc, String horario, CitaFacadeLocal citaEJB){
         Date fecha = null;
         List<Cita> citasDoctor = citaEJB.buscarCitas(doc);

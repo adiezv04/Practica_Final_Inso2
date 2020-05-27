@@ -6,8 +6,6 @@ import EJB.NotificacionFacadeLocal;
 import EJB.SolicitudFacadeLocal;
 import java.io.IOException;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import modelo.Cita;
 import modelo.Doctor;
 import modelo.Solicitud;
-import utils.BuscarHorario;
+import utils.FechasUtil;
 import utils.CrearNotificacion;
 
 /**
@@ -46,6 +44,7 @@ public class CitaControlador implements Serializable{
     
     private Cita cita;
     private Doctor doctor;
+    private FechasUtil fechaU;
     
     @PostConstruct
     public void inicia(){
@@ -53,6 +52,7 @@ public class CitaControlador implements Serializable{
         listaDoctores = doctorEJB.findAll();
         cita = new Cita();
         doctor = new Doctor();
+        fechaU = new FechasUtil();
     }
     
     public void creaCita(Solicitud sol){
@@ -67,9 +67,7 @@ public class CitaControlador implements Serializable{
             cita.setPaciente(sol.getPaciente());
             cita.setDoctor(doctor);
             
-            BuscarHorario buscaH = new BuscarHorario();
-            cita.setFecha(buscaH.buscaFecha(doctor, sol.getHorario(), citaEJB));
-            
+            cita.setFecha(fechaU.buscaFecha(doctor, sol.getHorario(), citaEJB));      
             
             citaEJB.create(cita);
             solicitudEJB.remove(sol);
@@ -86,7 +84,7 @@ public class CitaControlador implements Serializable{
     }
     
     public int getEdad(Date date){
-        Calendar fechaNacimiento = Calendar.getInstance();
+       Calendar fechaNacimiento = Calendar.getInstance();
 
        Calendar fechaActual = Calendar.getInstance();
 

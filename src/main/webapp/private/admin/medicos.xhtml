@@ -40,9 +40,11 @@
                                 <p:outputLabel/><p:outputLabel/>
                                 <p:outputLabel for="text4" value="Nombre de usuario:"/>
                                 <p:inputText id="text4"  value="#{medicoControlador.usuario.nombreUsuario}" required="true"/>
-
+                                <p:outputLabel/><p:outputLabel/>
                                 <p:outputLabel for="text5" value="Contraseña:"/>
-                                <p:password id="text5"  value="#{medicoControlador.usuario.clave}" required="true"/>
+                                <p:password id="text5"  value="#{medicoControlador.usuario.clave}" required="true" match="text6"/>
+                                <p:outputLabel for="text6" value="Repetir contraseña:"/>
+                                <p:password id="text6"  required="true"/>
                             </h:panelGrid>
                         </p:panel>
                         <p:commandButton value="Aceptar" actionListener="#{medicoControlador.crearDoctor()}"/>

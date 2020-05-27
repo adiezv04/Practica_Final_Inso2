@@ -36,17 +36,20 @@ public class CitasPacienteControlador implements Serializable{
     private CitaFacadeLocal citaEJB;
     @EJB
     private NotificacionFacadeLocal notificacionEJB;
+    
     private List<Cita> listaCitas;
+    private Paciente paciente;
+    private Doctor doctor;
     
     @PostConstruct
     public void inicia(){
         Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         if(usuario.getTipoUsuario().equals("paciente")){
-            Paciente pac = (Paciente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paciente");
-            listaCitas = citaEJB.buscarCita(pac);
+            paciente = (Paciente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("paciente");
+            listaCitas = citaEJB.buscarCita(paciente);
         }else{
-            Doctor doc = (Doctor) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("doctor");
-            listaCitas = citaEJB.buscarCitas(doc);
+            doctor = (Doctor) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("doctor");
+            listaCitas = citaEJB.buscarCitas(doctor);
         } 
     }
     
@@ -87,4 +90,22 @@ public class CitasPacienteControlador implements Serializable{
     public void setListaCitas(List<Cita> listaCitas) {
         this.listaCitas = listaCitas;
     }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+    
+    
 }
